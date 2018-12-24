@@ -20,10 +20,12 @@ def get_next_letter():
 
 if __name__ == '__main__':
     hangman = Hangman()
+    print('I have a word for you, can you guess what is it? ')
+
     while hangman.continue_game():
-        print('Word: {0}'.format(hangman.get_display_word()))
-        print('Attempts Remaining: {0}'.format(hangman.number_of_attempts_remained))
-        print('Previous unsuccessful guesses: {0}'.format(' '.join(hangman.wrong_guess_chars)))
+        print('The closure part of the word {0} '.format(hangman.get_display_word()))
+        print('You have {0} guesses'.format(hangman._number_of_attempts_remained))
+        print('Previous unsuccessful guesses: {0}'.format(' '.join(hangman._wrong_guess_chars)))
         print('Please give me your next guess:')
         next_letter = get_next_letter()
         status = hangman.get_next_letter(next_letter)
@@ -38,5 +40,3 @@ if __name__ == '__main__':
         hangman.save_high_score(player_name)
     else:
         print('Sorry, you failed. Don\'t worry you can beat it next time ;)')
-
-
